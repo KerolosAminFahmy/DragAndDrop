@@ -35,11 +35,13 @@ function Start(){
       item.parentElement.parentElement.style.backgroundColor="aliceblue";
     });
     item.addEventListener("touchstart",(e)=>{
+      e.preventDefault();
       initialTouchX = e.touches[0].clientX;
       initialTouchY = e.touches[0].clientY;
       item.style.opacity="0.5";
     });
     item.addEventListener("touchmove",(e)=>{
+      e.preventDefault();
       var deltaX = e.touches[0].clientX - initialTouchX+"px";
       var deltaY = e.touches[0].clientY - initialTouchY+"px";
       item.style.top=deltaY;
@@ -152,13 +154,18 @@ closeIcon.onclick = ()=>{
 }
 window.onload = ()=>{
   window.addEventListener("online", ()=>{
-    online()
+    online();
   });
   window.addEventListener("offline", ()=>{
     offline();
   });
 }
-
+window.addEventListener("online", ()=>{
+  online();
+});
+window.addEventListener("offline", ()=>{
+  offline();
+});
 function offline(){ 
   Disable.style.display = "block";
   wrapper.classList.remove("hide");
