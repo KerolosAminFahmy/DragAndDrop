@@ -1,0 +1,174 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  outline: none !important;
+}
+body {
+  background-color:#928cff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:60px;
+  height: 100vh;
+}
+.InputText{
+  padding:20px 40px;
+  background-color: aliceblue;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 25px;
+  gap:4px;
+}
+.InputText h2{
+  margin-bottom: 15px;
+}
+.InputText input{
+  padding: 5px 10px;
+  border: 1px solid #928cff;
+}
+.InputText button{
+  background-color: #928cff;
+  border: 3px solid #928cff;
+}
+h2{
+  font-size: 32px;
+  text-align: center;
+}
+.AllBox{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: inherit;
+}
+.AllBox .box{
+  background-color: aliceblue;
+  border-radius: 20px;
+  width:250px;
+  height: fit-content;
+  padding :20px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.AllBox .box .ListItem{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap:4px ;
+
+}
+.AllBox .box .ListItem .item{
+  background-color: #928cff;
+  padding: 10px 6px;
+  position: relative;
+}
+.AllBox .box .ListItem .item i{
+  color:red;
+  font-size: 16px;
+  position: absolute;
+  top:3px;
+  right:10px;
+}
+
+.wrapper{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  animation: show_toast 1s ease forwards;
+}
+@keyframes show_toast {
+  0%{
+    transform: translateX(-100%);
+  }
+  40%{
+    transform: translateX(10%);
+  }
+  80%, 100%{
+    transform: translateX(20px);
+  }
+}
+.wrapper.hide{
+  animation: hide_toast 1s ease forwards;
+}
+@keyframes hide_toast {
+  0%{
+    transform: translateX(20px);
+  }
+  40%{
+    transform: translateX(10%);
+  }
+  80%, 100%{
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-100%);
+  }
+}
+.wrapper .toast{
+  background: #fff;
+  padding: 20px 15px 20px 20px;
+  border-radius: 10px;
+  border-left: 5px solid #2ecc71;
+  box-shadow: 1px 7px 14px -5px rgba(0,0,0,0.15);
+  width: 430px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wrapper .toast.offline{
+  border-color: #ccc;
+}
+.toast .content{
+  display: flex;
+  align-items: center;
+}
+.content .icon{
+  font-size: 25px;
+  color: #fff;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  background: #2ecc71;
+}
+.toast.offline .content .icon{
+  background: #ccc;
+}
+.content .details{
+  margin-left: 15px;
+}
+.details span{
+  font-size: 20px;
+  font-weight: 500;
+}
+.details p{
+  color: #878787;
+}
+.toast .close-icon{
+  color: #878787;
+  font-size: 23px;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  background: #f2f2f2;
+  transition: all 0.3s ease;
+}
+.close-icon:hover{
+  background: #efefef;
+}
+.DarkBody{
+  display: none;
+  background-color: #878787d4;
+  position: fixed ;
+  height: 100vh;
+  width: 100%;
+}
